@@ -29,6 +29,7 @@ namespace DatingApp.API.Controllers
         {
             return new string[] { "value1", "value2" };
         }*/
+        // Repositry Pattern
         [HttpGet]
         //[EnableCors("CorsPolicy")]
         public async Task<IActionResult> GetValues()

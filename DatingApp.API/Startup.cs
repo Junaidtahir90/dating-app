@@ -23,10 +23,9 @@ namespace DatingApp.API
         {
             //var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             // To Inject Dbcontect and load ConnectionString 
-              //services.AddCors();
               services.AddDbContext<DataContext>(options =>options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
               services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            // To enable cord add service a below
+             // To enable cord add service a below
              services.AddCors(options =>
               {
                     options.AddPolicy("CorsPolicy",
@@ -35,6 +34,9 @@ namespace DatingApp.API
                     .AllowAnyHeader()
                     .AllowCredentials());
               });
+             // Need to learn/R&D Signleton & Transit,AddScoped
+              services.AddScoped<IAuthRepositry,AuthRepositry>();  // to add reference of Interface w.r.t Repositry
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
