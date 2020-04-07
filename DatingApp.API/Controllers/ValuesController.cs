@@ -19,7 +19,8 @@ namespace DatingApp.API.Controllers
         {
             _context=context;
         }
-        //http://localhost:5000/api/values/
+        #region Important Points
+        //http://localhost:5000/api/values/dot
         /*Important Commands*/
         // dotnet run - to run local server
         // dotnet run watch -- to autosync change,not to rerun above code again and again // this is not working as expected in my case
@@ -30,6 +31,7 @@ namespace DatingApp.API.Controllers
             return new string[] { "value1", "value2" };
         }*/
         // Repositry Pattern
+        #endregion
         [HttpGet]
         //[EnableCors("CorsPolicy")]
         public async Task<IActionResult> GetValues()
