@@ -51,7 +51,8 @@ namespace DatingApp.API.Controllers
     [HttpPost("login")]
     public async Task<IActionResult> Login (LoginDTO _loginDTO)
         {
-
+                
+            throw new Exception ("Server Down,Maintainance Mode,Get back Soon...!!!");
             var existingUser= await _authRepositry.Login(_loginDTO.Username,_loginDTO.Password);
 
             if (existingUser== null)
@@ -81,8 +82,6 @@ namespace DatingApp.API.Controllers
                 token=tokenHandler.WriteToken(token)
                 } 
             );
-
         }
-
     }
 }
