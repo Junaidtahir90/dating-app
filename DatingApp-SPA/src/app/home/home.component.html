@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div *ngIf="!registerMode" style="text-align: center">
+    <h1>Find your match</h1>
+    <p class="lead">Come on in to view your matches... All you need to do is sign up!</p>
+    <div class="text-center">
+      <button class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">Register</button> <!-- mt,ml,mr,mt boottrap build in classes for margins-->
+      <button class="btn btn-info btn-lg">Learn more</button>
+    </div>
+  </div>
+
+  <div *ngIf="registerMode" class="container">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register [valuesFromHome]="values" (cancelRegister)="cancelRegisterMode($event)" > </app-register>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<p *ngFor="let val of values"> {{val.name}}</p>
+-->
+<!--
+  ng-Switcher Commands
+  Go to the definition of variables/functions when press f12 within html.
+Switch .ts|.html|.css|.spec.ts quickly.
+Windows	macOS
+If on .ts|.css|.spec.ts: go to .html
+If on .html: go to previous	alt+o	shift+alt+o
+If on .ts|.html|.spec.ts: go to .css
+If on .css: go to previous	alt+i	shift+alt+i
+If on .css|.html|.spec.ts: go to .ts
+If on ts: go to previous	alt+u	shift+alt+u
+If on .ts|.css|.html: go to .spec.ts
+If on .spec.ts: go to previous	alt+p	shift+alt+p
+-->

@@ -34,6 +34,7 @@ namespace DatingApp.API.Controllers
         }*/
         // Repositry Pattern
         #endregion
+         [AllowAnonymous]
         [HttpGet]
         //[EnableCors("CorsPolicy")]
         public async Task<IActionResult> GetValues()
