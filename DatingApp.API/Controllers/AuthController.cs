@@ -38,7 +38,6 @@ namespace DatingApp.API.Controllers
 
              if(await _authRepositry.UserExits(_userDTO.Username)) {
                 /* return BadRequest ({
-
                  }"Username Already Exists");*/
                  return BadRequest (new{
                 errors="Username Already Exists"
