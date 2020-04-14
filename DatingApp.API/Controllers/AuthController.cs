@@ -41,7 +41,7 @@ namespace DatingApp.API.Controllers
 
                  }"Username Already Exists");*/
                  return BadRequest (new{
-                errors="Username Already Exists";
+                errors="Username Already Exists"
                 } );
              }
 
