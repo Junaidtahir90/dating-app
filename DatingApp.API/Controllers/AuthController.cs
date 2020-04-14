@@ -37,11 +37,10 @@ namespace DatingApp.API.Controllers
              _userDTO.Username =_userDTO.Username.ToLower();
 
              if(await _authRepositry.UserExits(_userDTO.Username)) {
-                /* return BadRequest ({
-                 }"Username Already Exists");*/
-                 return BadRequest (new{
+                 return BadRequest ("Username Already Exists");
+                /* return BadRequest (new{
                 errors="Username Already Exists"
-                } );
+                } );*/
              }
 
             var newUserCreation=new User {
@@ -56,7 +55,7 @@ namespace DatingApp.API.Controllers
     public async Task<IActionResult> Login (LoginDTO _loginDTO)
         {
                 
-            throw new Exception ("Server Down,Maintainance Mode,Get back Soon...!!!");
+           // throw new Exception ("Server Down,Maintainance Mode,Get back Soon...!!!");
             var existingUser= await _authRepositry.Login(_loginDTO.Username,_loginDTO.Password);
 
             if (existingUser== null)
