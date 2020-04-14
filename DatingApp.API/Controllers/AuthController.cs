@@ -37,7 +37,12 @@ namespace DatingApp.API.Controllers
              _userDTO.Username =_userDTO.Username.ToLower();
 
              if(await _authRepositry.UserExits(_userDTO.Username)) {
-                 return BadRequest ("OOOPS,Username Already Exists!!!!!");
+                /* return BadRequest ({
+
+                 }"Username Already Exists");*/
+                 return BadRequest (new{
+                errors="Username Already Exists";
+                } );
              }
 
             var newUserCreation=new User {
