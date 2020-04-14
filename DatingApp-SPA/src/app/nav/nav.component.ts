@@ -29,12 +29,12 @@ export class NavComponent implements OnInit {
     this.authService.login(this.model).subscribe(next => {
       console.log('Logged In Succesfully');
     }, error => {
-      console.log('Failed to Log In');
+      console.log(error);
     }
     );
   }
     loggedIn() {
-      const token=localStorage.getItem('token');
+      const token = localStorage.getItem('token');
       return !!token; // Short hand !! boloean true/false
     }
 
