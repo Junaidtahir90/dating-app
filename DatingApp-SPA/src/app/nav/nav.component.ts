@@ -34,9 +34,12 @@ export class NavComponent implements OnInit {
     }
     );
   }
+  
     loggedIn() {
-      const token = localStorage.getItem('token');
-      return !!token; // Short hand !! boloean true/false
+      //const token = localStorage.getItem('token');
+      //return !!token; // Short hand !! boloean true/false
+      return this.authService.loggedIn();
+      
     }
 
     logout() {

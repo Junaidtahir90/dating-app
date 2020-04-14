@@ -8,6 +8,7 @@ export class AlertifyService {
 
 constructor() { }
 
+// Notifcation Library https://alertifyjs.com/
 cofirm(message: string, okCallBack: () => any ) {
   alertify.cofirm(message, function(e) {
     if(e) {
