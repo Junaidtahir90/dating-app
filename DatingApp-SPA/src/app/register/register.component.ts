@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../_service/auth.service';
+import { AlertifyService } from '../_service/alertify.service';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
   @Input() valuesFromHome: any;
   @Output () cancelRegister = new EventEmitter();
 
-  constructor(private http: HttpClient, private authService: AuthService ) { }
+  constructor(private http: HttpClient, private authService: AuthService, private alertify: AlertifyService ) { }
 
   ngOnInit() {
   }
@@ -21,16 +22,15 @@ export class RegisterComponent implements OnInit {
   register() {
 
     this.authService.register(this.model).subscribe(next => {
-      console.log('Register Succesfully');
+      this.alertify.success('Register Succesfully');
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     });
    // return console.log(this.model);
   }
 
   cancel() {
     this.cancelRegister.emit(false); // any thing passed,which want to emit,bolean/object too
-    return console.log('cancelled');
   }
 
 }

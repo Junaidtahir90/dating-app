@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_service/auth.service';
+import { AlertifyService } from '../_service/alertify.service';
 
 @Component({
   selector: 'app-nav',
@@ -20,16 +21,16 @@ export class NavComponent implements OnInit {
   // techSpecMeta: {};
   // Type script this means to declare a property of type {} with no value initialized. It is the same as:
   // techSpecMeta: Object
-  constructor( private authService: AuthService ) { }
+  constructor( private authService: AuthService, private alertify: AlertifyService ) { }
 
   ngOnInit() {
   }
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      console.log('Logged In Succesfully');
+      this.alertify.success('Logged In Succesfullys');
     }, error => {
-      console.log(error);
+      this.alertify.error(error);
     }
     );
   }
@@ -40,7 +41,7 @@ export class NavComponent implements OnInit {
 
     logout() {
       localStorage.removeItem('token');
-      console.log('Logged Out Succesfully');
+      this.alertify.message('Logged Out Succesfully');
     }
 
   }
