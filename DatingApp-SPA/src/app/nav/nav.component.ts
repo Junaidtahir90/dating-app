@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_service/auth.service';
 import { AlertifyService } from '../_service/alertify.service';
+import { Routes, Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -21,16 +22,20 @@ export class NavComponent implements OnInit {
   // techSpecMeta: {};
   // Type script this means to declare a property of type {} with no value initialized. It is the same as:
   // techSpecMeta: Object
-  constructor( private authService: AuthService, private alertify: AlertifyService ) { }
+  constructor( private authService: AuthService, private alertify: AlertifyService, private router: Router   ) { }
 
   ngOnInit() {
   }
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      this.alertify.success('Logged In Succesfullys');
+      this.alertify.success('Logged In Successfully');
+     // this.router.navigate(['/members']);
     }, error => {
       this.alertify.error(error);
+      this.router.navigate(['/home']);
+    }, () => {
+      this.router.navigate(['/members']);
     }
     );
   }
@@ -45,6 +50,7 @@ export class NavComponent implements OnInit {
     logout() {
       localStorage.removeItem('token');
       this.alertify.message('Logged Out Succesfully');
+      this.router.navigate(['/home']);
     }
 
   }

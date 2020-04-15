@@ -1,0 +1,31 @@
+import {Routes} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { MemberListComponent } from './member-list/member-list.component';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { AuthGuard } from './_guards/auth.guard';
+
+
+export const appRoute: Routes = [
+
+    // Ordering is important in angular routing,if we use last routing as wild in first position,
+    // then it can not check belows routes,Be Carefull using routing
+    { path : '', component: HomeComponent },
+
+    {
+        path: '',
+        runGuardsAndResolvers: 'always',
+        canActivate : [AuthGuard],
+        children: 
+                [
+                    { path : 'members', component: MemberListComponent},
+                    { path : 'messages', component: MessagesComponent },
+                    { path : 'lists', component: ListsComponent },
+                ]
+
+    },
+    // AuthGuard to one route
+    // { path : 'members', component: MemberListComponent , canActivate : [AuthGuard] },
+    { path : '**', redirectTo: '' , pathMatch : 'full' },
+];
+

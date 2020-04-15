@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace DatingApp.API.Data
 {
     public class AuthRepositry : IAuthRepositry
-    {
+     {
         private readonly DataContext _context;
         public AuthRepositry(DataContext context)
         {
