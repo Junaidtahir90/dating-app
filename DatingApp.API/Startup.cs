@@ -31,6 +31,7 @@ namespace DatingApp.API
             //var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             // To Inject Dbcontect and load ConnectionString 
               services.AddDbContext<DataContext>(options =>options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+             services.AddTransient<Seed>();
               services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             #region Enbale CORS
              // To enable cor add service a below
@@ -64,7 +65,7 @@ namespace DatingApp.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,Seed seeder)
         {
             if (env.IsDevelopment())
             {
@@ -92,6 +93,7 @@ namespace DatingApp.API
             //app.UseHttpsRedirection();
             // To enable CORS
             app.UseCors("CorsPolicy");
+            //seeder.SeedUsers();
             app.UseAuthentication();
             app.UseMvc();
         }
