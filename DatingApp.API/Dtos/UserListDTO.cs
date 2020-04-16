@@ -14,5 +14,6 @@ namespace DatingApp.API.Dtos
         public string city { get; set; }
         public string country { get; set; }
        public string photoUrl { get; set; }
+       
     }
 }

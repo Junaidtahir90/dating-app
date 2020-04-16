@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using DatingApp.API.Models;
-using DatingApp.API.Models;
 
 namespace DatingApp.API.Dtos
 {
@@ -20,7 +19,7 @@ namespace DatingApp.API.Dtos
         public string city { get; set; }
         public string country { get; set; }
         public string  photoUrl { get; set; }
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<PhotoDetailDTO> Photos { get; set; }
 
     }
 }
