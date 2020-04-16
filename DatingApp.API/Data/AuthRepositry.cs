@@ -49,7 +49,7 @@ namespace DatingApp.API.Data
         public async Task<User> Register(User user, string password)
         {
             byte [] _passwordHash,_passwordSalt;
-            CreatePasswordHash(password, out _passwordHash, out _passwordSalt); // out keyword why?
+            CreatePasswordHash(password,  out _passwordHash, out _passwordSalt); // out keyword why?
 
             user.passwordHash=_passwordHash;
             user.passwordSalt=_passwordSalt;
