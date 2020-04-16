@@ -3,7 +3,6 @@ using System.Text;
 using DatingApp.API.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -13,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using DatingApp.API.Helper;
-
+using AutoMapper;
 
 namespace DatingApp.API
 {
@@ -32,7 +31,12 @@ namespace DatingApp.API
             // To Inject Dbcontect and load ConnectionString 
               services.AddDbContext<DataContext>(options =>options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
              services.AddTransient<Seed>();
-              services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+             //Just Handle json ',' error 
+              services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+              .AddJsonOptions(opt => {
+                  opt.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore; 
+                  }
+                  );
             #region Enbale CORS
              // To enable cor add service a below
              services.AddCors(options =>
@@ -44,9 +48,12 @@ namespace DatingApp.API
                     .AllowCredentials());
               });
               #endregion
+
+              services.AddAutoMapper((typeof(Startup)));
              // Need to learn/R&D Signleton & Transit,AddScoped
               #region  Add Interfaces
               services.AddScoped<IAuthRepositry,AuthRepositry>();  // to add reference of Interface w.r.t Repositry
+              services.AddScoped<IDatingRepositry, DatingRepositry>();
               #endregion
               
               #region  Enable Authorization
