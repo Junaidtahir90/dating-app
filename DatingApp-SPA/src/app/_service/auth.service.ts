@@ -19,6 +19,7 @@ constructor(private http: HttpClient ) { }
 
     return this.http.post(this.baseUrl + 'login', model).pipe(
       map((response: any) => {
+        // tslint:disable-next-line: variable-name
         const _response = response;
         if (_response) {
         localStorage.setItem('token', _response.token);

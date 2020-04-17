@@ -3,7 +3,7 @@ import { Photo } from './photo';
 export interface User {
     id: number;
     username: string;
-    nickname: string;
+    nickName: string;
     age: number;
     gender: string;
     createdDate: Date;
@@ -11,8 +11,8 @@ export interface User {
     city: string;
     country: string;
     photoUrl: string;
-    intersets ?: string;
+    interests ?: string;
     introduction ?: string;
-    lookingFir ?: string;
+    lookingFor ?: string;
     photos ?: Photo [];
 }

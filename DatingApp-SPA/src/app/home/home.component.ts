@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,18 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  registerMode= false;
-  values : any;
-   //http://localhost:5000/api/values/
-  baseUrl ='http://localhost:5000/api/';
+  registerMode = false;
+  values: any;
+   // http://localhost:5000/api/values/
+  baseUrl = environment.apiUrl; // 'http://localhost:5000/api/';
 
-  constructor( private http : HttpClient) { }
+  constructor( private http: HttpClient) { }
 
   ngOnInit() {
     this.getValues();
   }
 
-  
+
   registerToggle() {
     this.registerMode = true; // !this.registerMode
   }
@@ -28,10 +29,10 @@ export class HomeComponent implements OnInit {
     this.values = response;
   }, error => {
   console.log(error);
-})
+});
 }
- 
- cancelRegisterMode( registerMode : boolean ){
+
+ cancelRegisterMode( registerMode: boolean ) {
 
     this.registerMode = registerMode; // !this.registe
   }
