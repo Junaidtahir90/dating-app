@@ -5,7 +5,7 @@ import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
-
+import { NgxGalleryModule } from 'ngx-gallery';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,8 +24,8 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_service/user.service';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-//import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-
+import { MemberDetailResolver } from './_resolvers/member-detail-resolver';
+import { MemberListResolver } from './_resolvers/member-list-resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -52,6 +52,7 @@ export function tokenGetter() {
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
+      NgxGalleryModule,
       RouterModule.forRoot(appRoute),
       JwtModule.forRoot(
          {
@@ -68,7 +69,9 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
-      UserService
+      UserService,
+      MemberDetailResolver,
+      MemberListResolver
    ],
    bootstrap: [
       AppComponent

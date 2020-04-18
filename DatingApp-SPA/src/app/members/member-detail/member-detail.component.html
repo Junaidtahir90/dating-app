@@ -1,8 +1,11 @@
 <div class="container mt-4">
   <div class="row">
+    <h2> {{user.nickName}}'s Profile</h2>
+  </div>
+  <div class="row">
     <div class="col-sm-4">
         <div class="card">
-          <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt ="{{user?.nickName}}">
+          <img class="card-img-top img-thumbnail" src="{{user.photoUrl}}" alt ="{{user.nickName}}">
           <div class="card-body">
             <div>
               <strong>Location:</strong>
@@ -34,9 +37,9 @@
         <tabset class="member-tabset">
           <tab heading="About {{user?.nickName}}">
           <h4>Description</h4>
-          <p>{{user?.introduction}}</p>
+          <p>{{user.introduction}}</p>
           <h4>Looking For</h4>
-          <p>{{user?.lookingFor}}</p>
+          <p>{{user.lookingFor}}</p>
           </tab>
           <tab heading="Interests">
           <h4>Interests</h4>
@@ -47,6 +50,7 @@
           <h4>Photos</h4>
           
           <p>{{"Photo section"}}</p>
+          <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
         </tab>
         <tab heading="Message">
           <h4>Message</h4>
