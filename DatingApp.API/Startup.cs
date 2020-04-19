@@ -49,6 +49,7 @@ namespace DatingApp.API
               });
               #endregion
 
+              services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
               services.AddAutoMapper((typeof(Startup)));
              // Need to learn/R&D Signleton & Transit,AddScoped
               #region  Add Interfaces

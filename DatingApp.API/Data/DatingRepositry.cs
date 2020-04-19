@@ -23,6 +23,13 @@ namespace DatingApp.API.Data
             _context.Remove(entity);
         }
 
+        public async Task<Photo> GetImage(int id)
+        {
+            var p= await _context.Photos.FirstOrDefaultAsync(_ph =>_ph.Id==id);
+            return p;
+            //throw new System.NotImplementedException();
+        }
+
         public async Task<User> GetUser(int id)
         {
             var user= await _context.Users.Include(p=>p.Photos).FirstOrDefaultAsync(u=> u.id ==id);
@@ -30,6 +37,7 @@ namespace DatingApp.API.Data
             return user;
         }
 
+     
         public async Task<IEnumerable<User>> GetUsers()
         {
             var allUsers= await _context.Users.Include(p=>p.Photos).ToListAsync();

@@ -6,10 +6,10 @@ using DatingApp.API.Helper;
 
 namespace DatingApp.API.Helper
 {
-    public class AutoMapperPofilles: Profile
+    public class AutoMapperPofiles: Profile
     {
         
-        public AutoMapperPofilles()
+        public AutoMapperPofiles()
         {
             CreateMap<User, UserListDTO>().
             ForMember(dest=> dest.photoUrl,opt =>{
@@ -27,6 +27,9 @@ namespace DatingApp.API.Helper
                     });
             CreateMap<Photo, PhotoDetailDTO>();
             CreateMap<UserDataForUpdateDTO,User>();
+
+            CreateMap<PhotoMediaDTO, Photo>();
+            CreateMap<Photo, PhotoForReturnDTO>();
 
         }
     }

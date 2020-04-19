@@ -12,9 +12,9 @@ import { UserService } from 'src/app/_service/user.service';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
-@ViewChild('editForm',{static: false}) editForm: NgForm;
+@ViewChild('editForm', {static: false}) editForm: NgForm;
   user: User;
-  //#region Check on Browser if any changes and unexpected/close the browser 
+  //#region Check on Browser if any changes and unexpected/close the browser
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
     if (this.editForm.dirty) {
@@ -33,9 +33,9 @@ export class MemberEditComponent implements OnInit {
   }
 
   updateUser() {
-    //console.log(this.user);
-    //console.info(this.authService.decodedToken.nameid[0]);
-    this.userService.updateUser(this.authService.decodedToken.nameid[0] , this.user).subscribe( next =>{
+    // console.log(this.user);
+    // console.info(this.authService.decodedToken.nameid[0]);
+    this.userService.updateUser(this.authService.decodedToken.nameid[0] , this.user).subscribe( next => {
         this.alertify.success('Profile Update Successfully');
         this.editForm.reset(this.user);
       }, error => {
@@ -43,5 +43,3 @@ export class MemberEditComponent implements OnInit {
       });
       }
    }
-
-//}
