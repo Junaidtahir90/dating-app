@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.API.Models;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,13 @@ namespace DatingApp.API.Data
             var p= await _context.Photos.FirstOrDefaultAsync(_ph =>_ph.Id==id);
             return p;
             //throw new System.NotImplementedException();
+        }
+
+        public async Task<Photo> GetMainPhotoForUser(int userId)
+        {
+            return await _context.Photos.Where(u=> u.UserId == userId).FirstOrDefaultAsync( ph => ph.isMain);
+          // return mainPhotoForUser;
+           //throw new System.NotImplementedException();
         }
 
         public async Task<User> GetUser(int id)

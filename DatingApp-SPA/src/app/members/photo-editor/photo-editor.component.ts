@@ -3,6 +3,8 @@ import { Photo } from 'src/app/_models/photo';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/_service/auth.service';
+import { UserService } from 'src/app/_service/user.service';
+import { AlertifyService } from 'src/app/_service/alertify.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -12,14 +14,20 @@ import { AuthService } from 'src/app/_service/auth.service';
 export class PhotoEditorComponent implements OnInit {
 
   @Input() photos: Photo[];
+  userId: number;
   uploader: FileUploader;
   hasBaseDropZoneOver: false;
   baseUrl = environment.apiUrl;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private userService: UserService,
+              private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.initialzerUploader();
+    // this.userId = + this.authService.decodedToken.nameid[0];
   }
+
+
   public fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
@@ -38,8 +46,8 @@ export class PhotoEditorComponent implements OnInit {
     );
     this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
 
-    this.uploader.onSuccessItem =(item, response, status, headers) => {
-      if(response) {
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
+      if (response) {
         const res: Photo = JSON.parse(response);
         const photo = {
           id: res.id,
@@ -51,6 +59,20 @@ export class PhotoEditorComponent implements OnInit {
         this.photos.push(photo);
       }
     };
+  }
+
+ /* getUserId() {
+    return this.authService.decodedToken.nameid[0];
+  }*/
+  setMainPhoto(photo: Photo ) {
+    this.userService.setMainPhoto(this.authService.decodedToken.nameid[0], photo.id).subscribe(() => {
+      this.alertify.success('Image Set Succesfully');
+      console.log('Image Set Succesfully');
+    }, error => {
+      this.alertify.error(error);
+      console.log(error);
+    }
+    );
   }
 
 }
