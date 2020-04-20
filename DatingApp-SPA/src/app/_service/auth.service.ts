@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators'; // observavales
 import {JwtHelperService} from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
+import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ constructor(private http: HttpClient ) { }
 
   baseUrl = environment.apiUrl + 'auth/';
   jwtHelper = new JwtHelperService();
-  decodedToken : any;
+  decodedToken: any;
+  currentUser: User;
 
   login(model: any) {
 
@@ -23,6 +25,8 @@ constructor(private http: HttpClient ) { }
         const _response = response;
         if (_response) {
         localStorage.setItem('token', _response.token);
+        localStorage.setItem('user', JSON.stringify(_response.user));
+        this.currentUser = _response.user;
         this.decodedToken = this.jwtHelper.decodeToken(_response.token);
         console.log(this.decodedToken);
         }
@@ -34,9 +38,9 @@ constructor(private http: HttpClient ) { }
 
     return this.http.post(this.baseUrl + 'register', model).pipe(
       map((response: any) => {
-        const _response = response;
-        if (_response) {
-        localStorage.setItem('token', _response.token);
+        const Response = response;
+        if (Response) {
+        localStorage.setItem('token', Response.token);
         }
       })
     );

@@ -9,6 +9,7 @@ namespace DatingApp.API.Dtos
         public string description { get; set; }
         public DateTime dateAdded { get; set; }
         public string publicId {get;set;}
+        public bool isMain { get; set;}
       
     }
 }

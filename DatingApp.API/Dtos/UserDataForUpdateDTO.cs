@@ -7,6 +7,7 @@ namespace DatingApp.API.Dtos
         public string interests { get; set; }
         public string city { get; set; }
         public string country { get; set; }
+        public bool isMain { get; set;}
       
     }
 }

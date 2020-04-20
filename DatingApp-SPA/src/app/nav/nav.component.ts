@@ -39,17 +39,18 @@ export class NavComponent implements OnInit {
     }
     );
   }
-  
     loggedIn() {
-      //const token = localStorage.getItem('token');
-      //return !!token; // Short hand !! boloean true/false
+      // const token = localStorage.getItem('token');
+      // return !!token; // Short hand !! boloean true/false
       return this.authService.loggedIn();
-      
     }
 
     logout() {
       localStorage.removeItem('token');
-      this.alertify.message('Logged Out Succesfully');
+      localStorage.removeItem('user');
+      this.authService.decodedToken = null;
+      this.authService.currentUser = null;
+      this.alertify.message('Logged out Succesfully');
       this.router.navigate(['/home']);
     }
 
