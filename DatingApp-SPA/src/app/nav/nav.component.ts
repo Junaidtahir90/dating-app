@@ -12,7 +12,9 @@ export class NavComponent implements OnInit {
 
 
  // model: any;
+
  model = {};
+ photoUrl : string;
   /*model = {
     var  username,
     var password
@@ -25,6 +27,7 @@ export class NavComponent implements OnInit {
   constructor( private authService: AuthService, private alertify: AlertifyService, private router: Router   ) { }
 
   ngOnInit() {
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   login() {
