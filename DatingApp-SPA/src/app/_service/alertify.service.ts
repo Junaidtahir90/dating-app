@@ -9,18 +9,17 @@ export class AlertifyService {
 constructor() { }
 
 // Notifcation Library https://alertifyjs.com/
-cofirm(message: string, okCallBack: () => any ) {
-  alertify.cofirm(message, function(e) {
+confirm(message: string, okCallBack: () => any ) {
+  alertify.confirm(message, function (e) {
     if(e) {
       okCallBack();
-    }
-    else{
+    } else {
       // Do nothing
     }
   });
 }
 
-success(message: string){
+success(message: string) {
   alertify.success(message);
 }
 
