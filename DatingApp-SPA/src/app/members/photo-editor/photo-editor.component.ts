@@ -16,7 +16,7 @@ export class PhotoEditorComponent implements OnInit {
   @Input() photos: Photo[];
   @Output() getUserPhotoChange = new EventEmitter<string>();
   userId: number;
-  currentMainPhoto : Photo ;
+  currentMainPhoto: Photo ;
   uploader: FileUploader;
   hasBaseDropZoneOver: false;
   baseUrl = environment.apiUrl;
@@ -69,7 +69,7 @@ export class PhotoEditorComponent implements OnInit {
   setMainPhoto(photo: Photo ) {
     this.userService.setMainPhoto(this.authService.decodedToken.nameid[0], photo.id).subscribe(() => {
      // to Change photo icon runtime
-      this.currentMainPhoto = this.photos.filter(p =>p.isMain)[0];
+      this.currentMainPhoto = this.photos.filter(p => p.isMain)[0];
       this.currentMainPhoto.isMain = false;
       photo.isMain = true;
       this.authService.changeMemberPhoto(photo.url);
@@ -84,7 +84,19 @@ export class PhotoEditorComponent implements OnInit {
     }
     );
   }
-  
+
+  deletePhoto(id: number) {
+    this.alertify.confirm('Are you sure you want to delete this photo?', () => {
+        this.userService.deletePhoto(this.authService.decodedToken.nameid[0], id).subscribe(() => {
+          this.photos.splice(this.photos.findIndex(p => p.id === id), 1);
+          this.alertify.success('Photo has been delted succesfully');
+        }, error => {
+          this.alertify.error(error);
+        });
+      });
+
+  }
+
 
 
 }
