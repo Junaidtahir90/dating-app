@@ -11,20 +11,20 @@ import { Routes, Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
 
- // model: any;
+  // model: any;
 
- model = {};
- photoUrl : string;
+  model = {};
+  photoUrl: string;
   /*model = {
     var  username,
     var password
   };
   */
- // model = {}; // not use any but {} object
+  // model = {}; // not use any but {} object
   // techSpecMeta: {};
   // Type script this means to declare a property of type {} with no value initialized. It is the same as:
   // techSpecMeta: Object
-  constructor( private authService: AuthService, private alertify: AlertifyService, private router: Router   ) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
     this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
@@ -33,7 +33,7 @@ export class NavComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.success('Logged In Successfully');
-     // this.router.navigate(['/members']);
+      // this.router.navigate(['/members']);
     }, error => {
       this.alertify.error(error);
       this.router.navigate(['/home']);
@@ -42,21 +42,21 @@ export class NavComponent implements OnInit {
     }
     );
   }
-    loggedIn() {
-      // const token = localStorage.getItem('token');
-      // return !!token; // Short hand !! boloean true/false
-      return this.authService.loggedIn();
-    }
-
-    logout() {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-      this.authService.decodedToken = null;
-      this.authService.currentUser = null;
-      this.alertify.message('Logged out Succesfully');
-      this.router.navigate(['/home']);
-    }
-
+  loggedIn() {
+    // const token = localStorage.getItem('token');
+    // return !!token; // Short hand !! boloean true/false
+    return this.authService.loggedIn();
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.authService.decodedToken = null;
+    this.authService.currentUser = null;
+    this.alertify.message('Logged out Succesfully');
+    this.router.navigate(['/home']);
+  }
+
+}
 
 
