@@ -10,16 +10,17 @@ constructor() { }
 
 // Notifcation Library https://alertifyjs.com/
 confirm(message: string, okCallBack: () => any ) {
-  alertify.confirm(message, function (e) {
+  alertify.cofirm(message, function(e) {
     if(e) {
       okCallBack();
-    } else {
+    }
+    else{
       // Do nothing
     }
   });
 }
 
-success(message: string) {
+success(message: string){
   alertify.success(message);
 }
 
