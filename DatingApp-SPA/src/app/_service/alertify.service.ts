@@ -10,8 +10,9 @@ constructor() { }
 
 // Notifcation Library https://alertifyjs.com/
 confirm(message: string, okCallBack: () => any ) {
-  alertify.confirm(message, function (e) {
-    if(e) {
+  // tslint:disable-next-line: only-arrow-functions
+  alertify.confirm(message, function(e) {
+    if (e) {
       okCallBack();
     } else {
       // Do nothing

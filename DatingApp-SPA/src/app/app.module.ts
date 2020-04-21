@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -59,6 +59,7 @@ export function tokenGetter() {
       AppRoutingModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
@@ -68,7 +69,7 @@ export function tokenGetter() {
       JwtModule.forRoot(
          {
             config: {
-               tokenGetter : tokenGetter,
+               tokenGetter,
                whitelistedDomains : ['localhost:5000'],
                blacklistedRoutes : ['localhost:5000/api/auth'],
             }

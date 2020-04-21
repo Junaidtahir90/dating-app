@@ -1,9 +1,10 @@
-<form #ngForm="ngForm" (ngSubmit)="register()">
+<form [formGroup]= "registerForm"  (ngSubmit)="register()">
+  <!--#ngForm="ngForm" -->
   <h2 class="text-center text-primary">Sign Up</h2>
   <hr>
 
   <div class="form-group">
-    <input type="text" class="form-control" required name="username" [(ngModel)]="model.username"  placeholder="Username">
+    <input type="text" class="form-control" formControlName="username" placeholder="Username">
   </div>
   <!--
   Load (valuesFromHome) Value from Db to view
@@ -18,12 +19,24 @@
 End-->
 
   <div class="form-group">
-    <input type="password" class="form-control" required name="password" [(ngModel)]="model.password" placeholder="Password">
+    <input type="password" class="form-control" formControlName="password" placeholder="Password">
   </div>
 
+  <div class="form-group">
+    <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirm Password">
+  </div>
   <div class="form-group text-center">
     <button class="btn btn-success" type="submit">Register</button>
     <button class="btn btn-default"  type="button" (click)="cancel()" >Cancel</button>
   </div>
   
 </form>
+
+
+<span>
+  Form Value : {{registerForm.value|json}}
+</span>
+
+<span>
+  Form Value : {{registerForm.status|json}}
+</span>
