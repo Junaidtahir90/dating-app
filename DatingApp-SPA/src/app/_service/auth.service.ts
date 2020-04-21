@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+// tslint:disable-next-line: import-spacing
 import { BehaviorSubject}  from 'rxjs';
 import {map} from 'rxjs/operators'; // observavales
 import {JwtHelperService} from '@auth0/angular-jwt';
@@ -17,10 +18,10 @@ constructor(private http: HttpClient ) { }
   jwtHelper = new JwtHelperService();
   decodedToken: any;
   currentUser: User;
-  photoUrl = new BehaviorSubject<string>('../../assets/user.png')
+  photoUrl = new BehaviorSubject<string>('../../assets/user.png');
   currentPhotoUrl = this.photoUrl.asObservable();
 
-  changeMemberPhoto (photoUrl : string){
+  changeMemberPhoto(photoUrl: string) {
     this.photoUrl.next(photoUrl);
   }
 
@@ -42,9 +43,9 @@ constructor(private http: HttpClient ) { }
     );
   }
 
-  register(model: any) {
+  register(user: User) {
 
-    return this.http.post(this.baseUrl + 'register', model).pipe(
+    return this.http.post(this.baseUrl + 'register', user).pipe(
       map((response: any) => {
         const Response = response;
         if (Response) {
