@@ -14,7 +14,7 @@ import { UserService } from 'src/app/_service/user.service';
 export class MemberEditComponent implements OnInit {
 @ViewChild('editForm', {static: false}) editForm: NgForm;
   user: User;
-  photoUrl : string;
+  photoUrl: string;
   //#region Check on Browser if any changes and unexpected/close the browser
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {

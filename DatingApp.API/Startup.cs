@@ -52,6 +52,8 @@ namespace DatingApp.API
               services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
               services.AddAutoMapper((typeof(Startup)));
              // Need to learn/R&D Signleton & Transit,AddScoped
+            //Using Action Filter
+             services.AddScoped<LogUserActivity>();
               #region  Add Interfaces
               services.AddScoped<IAuthRepositry,AuthRepositry>();  // to add reference of Interface w.r.t Repositry
               services.AddScoped<IDatingRepositry, DatingRepositry>();
