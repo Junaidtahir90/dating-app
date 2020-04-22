@@ -10,11 +10,13 @@ import { catchError } from 'rxjs/operators';
 @Injectable()
 
 export class MemberListResolver implements Resolve<User[]> {
+    pageNumber = 1;
+    pageSize = 5;
     constructor(private userSevice: UserService,
                 private router: Router, private alertify: AlertifyService) {}
 
             resolve(route: ActivatedRouteSnapshot): Observable<User[]> {
-                return this.userSevice.getUsers().pipe
+                return this.userSevice.getUsers(this.pageNumber, this.pageSize).pipe
                          (catchError(error => {
                             this.alertify.error('Failed to Load Users Data');
                             this.router.navigate(['/home']);
