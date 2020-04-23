@@ -62,14 +62,14 @@ namespace DatingApp.API.Data
                  
             }
 
-            if(string.IsNullOrEmpty(userParams.OrderBy)){
+            if(!string.IsNullOrEmpty(userParams.OrderBy)){
 
                 switch(userParams.OrderBy)
                     {
                         case   "created":
                                 users= users.OrderByDescending(usr => usr.createdDate);
                                 break;
-                        default :
+                        default:
                                 users= users.OrderByDescending(usr => usr.lastActive);
                                 break;
                     }
