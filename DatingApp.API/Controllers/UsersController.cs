@@ -33,7 +33,6 @@ namespace DatingApp.API.Controllers
         public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
         {
 
-            
             var currentUserId=int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
             
             userParams.UserId = currentUserId;

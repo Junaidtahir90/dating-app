@@ -55,8 +55,8 @@ namespace DatingApp.API.Data
             users= users.Where(us => us.id != userParams.UserId);
             users= users.Where(us => us.gender == userParams.Gender);
             //users= users.Where(us => us.nickName.c == userParams.Gender);
-            if((userParams.MinAge != 18) || (userParams.MaxAge != 99)){
-                var minDOB=DateTime.Today.AddYears(-userParams.MaxAge-1);
+            if(userParams.MinAge != 18 || userParams.MaxAge != 99){
+                var minDOB=DateTime.Today.AddYears(-userParams.MaxAge - 1);
                 var maxDOB=DateTime.Today.AddYears(-userParams.MinAge);
                  users=users.Where(us=> us.dateOfBirth >= minDOB && us.dateOfBirth <= maxDOB);
                  
