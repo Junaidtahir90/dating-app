@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // tslint:disable-next-line: import-spacing
-import { BehaviorSubject}  from 'rxjs';
-import {map} from 'rxjs/operators'; // observavales
-import {JwtHelperService} from '@auth0/angular-jwt';
+import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators'; // observavales
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { environment } from 'src/environments/environment';
 import { User } from '../_models/user';
 
@@ -12,7 +12,7 @@ import { User } from '../_models/user';
 })
 export class AuthService {
 
-constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient) { }
 
   baseUrl = environment.apiUrl + 'auth/';
   jwtHelper = new JwtHelperService();
@@ -32,12 +32,12 @@ constructor(private http: HttpClient ) { }
         // tslint:disable-next-line: variable-name
         const _response = response;
         if (_response) {
-        localStorage.setItem('token', _response.token);
-        localStorage.setItem('user', JSON.stringify(_response.user));
-        this.currentUser = _response.user;
-        this.decodedToken = this.jwtHelper.decodeToken(_response.token);
-        this.changeMemberPhoto(this.currentUser.photoUrl);
-        console.log(this.decodedToken);
+          localStorage.setItem('token', _response.token);
+          localStorage.setItem('user', JSON.stringify(_response.user));
+          this.currentUser = _response.user;
+          this.decodedToken = this.jwtHelper.decodeToken(_response.token);
+          this.changeMemberPhoto(this.currentUser.photoUrl);
+          console.log(this.decodedToken);
         }
       })
     );
@@ -49,7 +49,7 @@ constructor(private http: HttpClient ) { }
       map((response: any) => {
         const Response = response;
         if (Response) {
-        localStorage.setItem('token', Response.token);
+          localStorage.setItem('token', Response.token);
         }
       })
     );
@@ -57,8 +57,8 @@ constructor(private http: HttpClient ) { }
 
 
   loggedIn() {
-  const token = localStorage.getItem('token');
-  return !this.jwtHelper.isTokenExpired(token);
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);
 
   }
 }

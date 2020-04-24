@@ -11,10 +11,10 @@ export class HomeComponent implements OnInit {
 
   registerMode = false;
   values: any;
-   // http://localhost:5000/api/values/
+  // http://localhost:5000/api/values/
   baseUrl = environment.apiUrl; // 'http://localhost:5000/api/';
 
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.getValues();
@@ -26,13 +26,13 @@ export class HomeComponent implements OnInit {
   }
   getValues() {
     this.http.get(this.baseUrl + 'values/').subscribe(response => {
-    this.values = response;
-  }, error => {
-  console.log(error);
-});
-}
+      this.values = response;
+    }, error => {
+      console.log(error);
+    });
+  }
 
- cancelRegisterMode( registerMode: boolean ) {
+  cancelRegisterMode(registerMode: boolean) {
 
     this.registerMode = registerMode; // !this.registe
   }

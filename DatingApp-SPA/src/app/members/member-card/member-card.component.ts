@@ -12,12 +12,12 @@ import { AlertifyService } from 'src/app/_service/alertify.service';
 export class MemberCardComponent implements OnInit {
 
   @Input() user: User;
-  constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService ) { }
+  constructor(private authService: AuthService, private userService: UserService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
 
-  likeUser(id: number ) {
+  likeUser(id: number) {
     this.userService.likeUser(this.authService.decodedToken.nameid[0], id).subscribe(data => {
       this.alertify.success('You have liked: ' + this.user.nickName);
     }, error => {
