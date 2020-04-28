@@ -24,5 +24,10 @@ namespace DatingApp.API.Models
         public ICollection<Like> Likees { get; set; }
         public ICollection<Message> MessageSent { get; set; }
         public ICollection<Message> MessageReceived { get; set; }
+
+        internal object where(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

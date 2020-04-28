@@ -23,22 +23,23 @@
       <div class="dropdown-menu" *bsDropdownMenu>
         <a class="dropdown-item mt-3" [routerLink]="['/member/edit']"> <i class="fa fa-user"></i> Edit Profile</a>
         <div class="dropdown divider"></div>
-      
-      <!--  <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+
+        <!--  <a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
        -->
         <a class="dropdown-item" (click)="logout()" [routerLink]="[]"> <i class="fa fa-sign-out"></i> Logout</a>
-       
-       
+
+
 
       </div>
     </div>
 
-    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+    <form *ngIf="!loggedIn()" #loginFor="ngForm" class="form-inline my-2 my-lg-0"
+      (ngSubmit)="loginFor.valid && login()">
       <input class="form-control mr-sm-2" name="username" type="text" placeholder="Username"
         [(ngModel)]="model.username">
       <input class="form-control mr-sm-2" name="password" type="password" placeholder="Password"
         [(ngModel)]="model.password">
-      <button [disabled]="!loginForm.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+      <button [disabled]="!loginFor.valid" class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
     </form>
   </div>
 </nav>
@@ -47,20 +48,20 @@
 <!--Forms Validations Start
 <pre>
   <h5> Forms Validations</h5>
-  Form Valid :  {{loginForm.valid}}
-  Form Touched :  {{loginForm.touched}}
-  Form Dirty:  {{loginForm.dirty}}
-  Form Values:  {{loginForm.value | json}}
+  Form Valid :  {{loginFor.valid}}
+  Form Touched :  {{loginFor.touched}}
+  Form Dirty:  {{loginFor.dirty}}
+  Form Values:  {{loginFor.value | json}}
 
-  username Valid {{username.valid}}
-  username Touched {{username.touched}}
-  username Dirty {{username.dirty}}
-  username Values {{username.value}}
+  username Valid {{model.username.valid}}
+  username Touched {{model.username.touched}}
+  username Dirty {{model.username.dirty}}
+  username Values {{model.username.value}}
 
-  password Valid {{password.valid}}
-  password Touched {{password.touched}}
-  password Dirty {{password.dirty}}
-  password Values {{password.value}}
+  password Valid {{model.password.valid}}
+  password Touched {{model.password.touched}}
+  password Dirty {{model.password.dirty}}
+  password Values {{model.password.value}}
 </pre>
 
-Forms Validations End-->
+Forms Validations End -->

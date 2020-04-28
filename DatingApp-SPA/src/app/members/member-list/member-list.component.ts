@@ -47,6 +47,11 @@ export class MemberListComponent implements OnInit {
     this.loadUsers();
   }
   loadUsers() {
+
+   /*if ((this.userParams.minAge >= 18) && (this.userParams.minAge <= 99) ) {
+      console.log(this.userParams);
+      return this.alertify.error('Age must be 18 and 99');
+    }*/
     this.userService.getUsers(this.pagination.currentPage, this.pagination.itemsPerPage, this.userParams).subscribe(
           (users: PaginatedResult<User[]>) => {
       this.users = users.result;

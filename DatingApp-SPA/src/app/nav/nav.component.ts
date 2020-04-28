@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
 
   // model: any;
 
-  model = {};
+  model: any = {};
   photoUrl: string;
   /*model = {
     var  username,
