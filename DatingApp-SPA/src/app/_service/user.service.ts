@@ -38,11 +38,11 @@ export class UserService {
 
     if (likeParams === 'Likers') {
       params = params.append('likers', 'true');
-     }
+    }
 
     if (likeParams === 'Likees') {
       params = params.append('likees', 'true');
-     }
+    }
 
     return this.http.get<User[]>(this.baseUrl + 'users', {
       observe: 'response', params
@@ -81,7 +81,7 @@ export class UserService {
     return this.http.post(this.baseUrl + 'users/' + id + '/like/' + recipientId, {});
   }
 
-  getMessages(id: number, page? , itemsPerPage?, messageContainer?) {
+  getMessages(id: number, page?, itemsPerPage?, messageContainer?) {
     const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
     let params = new HttpParams();
 
@@ -93,8 +93,8 @@ export class UserService {
     }
 
     return this.http.get<Message[]>(this.baseUrl + 'users/' + id + '/messages', {
-      observe : 'response', params
-    } ).pipe(
+      observe: 'response', params
+    }).pipe(
       map(response => {
         paginatedResult.result = response.body;
         if (response.headers.get('Pagination') !== null) {
@@ -105,21 +105,21 @@ export class UserService {
     );
   }
 
-  getMessageThread(id: number , recipientId: number) {
+  getMessageThread(id: number, recipientId: number) {
     return this.http.get<Message[]>(this.baseUrl + 'users/' + id + '/messages/thread/' + recipientId);
   }
-  sendMessage(id: number, message: Message ) {
-    return this.http.post(this.baseUrl + 'users/' + id + '/messages/' , message);
+  sendMessage(id: number, message: Message) {
+    return this.http.post(this.baseUrl + 'users/' + id + '/messages/', message);
   }
 
-deleteMessage(id: number, userId: number) {
-  return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {} );
-}
+  deleteMessage(id: number, userId: number) {
+    return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {});
+  }
 
-markAsReadMessage(userId: number, messageId: number) {
+  markAsReadMessage(userId: number, messageId: number) {
 
-  return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + messageId + '/read', {})
-  .subscribe();
-}
+    return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + messageId + '/read', {})
+      .subscribe();
+  }
 
 }
