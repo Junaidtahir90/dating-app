@@ -3,11 +3,12 @@
     width: 85%;
     height: 85%;
 }
+
 .card-body {
    padding: 0 25px; 
 }
 .card-footer {
-    padding: 0 10px;
+    padding: 25px 25px ;
     background-color: white;
     border-top:none ;
 }
