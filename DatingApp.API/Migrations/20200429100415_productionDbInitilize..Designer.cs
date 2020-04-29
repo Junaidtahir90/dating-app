@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DatingApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200415131903_ExtendedUserClass")]
-    partial class ExtendedUserClass
+    [Migration("20200429100415_productionDbInitilize.")]
+    partial class productionDbInitilize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,50 @@ namespace DatingApp.API.Migrations
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("DatingApp.API.Models.Like", b =>
+                {
+                    b.Property<int>("LikerId");
+
+                    b.Property<int>("LikeeId");
+
+                    b.HasKey("LikerId", "LikeeId");
+
+                    b.HasIndex("LikeeId");
+
+                    b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("DatingApp.API.Models.Message", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("content");
+
+                    b.Property<DateTime?>("dateRead");
+
+                    b.Property<bool>("isRead");
+
+                    b.Property<DateTime?>("messageSent");
+
+                    b.Property<bool>("recipientDeleted");
+
+                    b.Property<int>("recipientId");
+
+                    b.Property<bool>("senderDeleted");
+
+                    b.Property<int>("senderId");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("recipientId");
+
+                    b.HasIndex("senderId");
+
+                    b.ToTable("Messages");
+                });
 
             modelBuilder.Entity("DatingApp.API.Models.Photo", b =>
                 {
@@ -34,6 +78,8 @@ namespace DatingApp.API.Migrations
                     b.Property<string>("description");
 
                     b.Property<bool>("isMain");
+
+                    b.Property<string>("publicId");
 
                     b.Property<string>("url");
 
@@ -92,6 +138,32 @@ namespace DatingApp.API.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Values");
+                });
+
+            modelBuilder.Entity("DatingApp.API.Models.Like", b =>
+                {
+                    b.HasOne("DatingApp.API.Models.User", "Likee")
+                        .WithMany("Likers")
+                        .HasForeignKey("LikeeId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("DatingApp.API.Models.User", "Liker")
+                        .WithMany("Likees")
+                        .HasForeignKey("LikerId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
+            modelBuilder.Entity("DatingApp.API.Models.Message", b =>
+                {
+                    b.HasOne("DatingApp.API.Models.User", "recipient")
+                        .WithMany("MessageReceived")
+                        .HasForeignKey("recipientId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("DatingApp.API.Models.User", "sender")
+                        .WithMany("MessageSent")
+                        .HasForeignKey("senderId")
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 
             modelBuilder.Entity("DatingApp.API.Models.Photo", b =>

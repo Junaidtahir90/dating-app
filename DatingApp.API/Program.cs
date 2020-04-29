@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 namespace DatingApp.API
 {
     public class Program
+    
     {
         public static void Main(string[] args)
         {

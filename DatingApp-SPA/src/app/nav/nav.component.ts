@@ -24,7 +24,7 @@ export class NavComponent implements OnInit {
   // techSpecMeta: {};
   // Type script this means to declare a property of type {} with no value initialized. It is the same as:
   // techSpecMeta: Object
-  constructor(private authService: AuthService, private alertify: AlertifyService, private router: Router) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService, private router: Router) { }
 
   ngOnInit() {
     this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
