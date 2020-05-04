@@ -3,7 +3,7 @@
         <img src="{{photo.url || '../../../assets/user.png'}}" class="img-thumbnail p-1" alt="">
         <div class="text-center">
             <button type="button" class="btn btn-sm" (click)="setMainPhoto(photo)"
-                [ngClass]="photo.isMain ?  'btn-success active' : 'btn-secondary'"
+                [ngClass]="photo.isMain ?  'btn-primary active ' : 'btn-secondary'"
                 [disabled]="photo.isMain">Main</button>
             <button type="button" class="btn btn-sm btn-danger" (click)="deletePhoto(photo.id)"
                 [disabled]="photo.isMain"><i class="fa fa-trash-o"></i></button>
@@ -62,11 +62,11 @@
                     <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
                 </div>
             </div>
-            <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()"
+            <button type="button" class="btn btn-success btn-s mr-2" (click)="uploader.uploadAll()"
                 [disabled]="!uploader.getNotUploadedItems().length">
                 <span class="fa fa-upload"></span> Upload
             </button>
-            <button type="button" class="btn btn-warning btn-s" (click)="uploader.cancelAll()"
+            <button type="button" class="btn btn-warning btn-s mr-2" (click)="uploader.cancelAll()"
                 [disabled]="!uploader.isUploading">
                 <span class="fa fa-ban"></span> Cancel
             </button>

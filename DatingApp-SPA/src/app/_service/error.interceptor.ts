@@ -10,7 +10,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             catchError(error => {
                 if (error instanceof HttpErrorResponse) {
                     if ((error.status === 400) || (error.status === 401)) {
-                        return throwError(error.error);
+                        return throwError(error);
                     }
                     const applicationError = error.headers.get('Application-Error');
                     if (applicationError) {

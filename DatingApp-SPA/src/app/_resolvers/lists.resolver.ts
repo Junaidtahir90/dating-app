@@ -11,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 
 export class ListsResolver implements Resolve<User[]> {
     pageNumber = 1;
-    pageSize = 5;
+    pageSize = 6;
     likeParams = 'Likers';
     constructor(private userSevice: UserService,
                 private router: Router, private alertify: AlertifyService) { }

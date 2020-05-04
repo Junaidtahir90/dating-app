@@ -24,10 +24,17 @@
             <strong>Age:</strong>
             <p>{{user.age}}</p>
           </div>
-       
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{user.lastActive | timeAgo}} </p>
+          </div>
+          <div>
+            <strong>Member Since:</strong>
+            <p>{{user.createdDate | date : 'mediumDate' }}</p>
+          </div>
         </div>
         <div class="card-footer">
-          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block"> Save Changes </button>
+          <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-primary btn-block"> Save Changes </button>
         </div>
       </div>
     </div>

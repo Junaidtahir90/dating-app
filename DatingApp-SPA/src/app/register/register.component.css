@@ -1,3 +1,8 @@
 .btn-Cancel {
-    border: 1px solid orange;
+    border: 1px solid #2780E3 !important;
 }
+/*.btn-Ok {
+    background-color:inherit !important ;
+    border-color:dodgerblue !important ;
+    border: 2px solid black !important;
+}*/

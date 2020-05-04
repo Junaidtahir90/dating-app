@@ -12,7 +12,7 @@ import { AuthService } from '../_service/auth.service';
 
 export class MessagesResolver implements Resolve<Message[]> {
     pageNumber = 1;
-    pageSize = 5;
+    pageSize = 10;
     messageContainer = 'Unread';
 
     constructor(private userSevice: UserService, private authService: AuthService,

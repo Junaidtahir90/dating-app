@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import '../node_modules/bootswatch/dist/united//bootstrap.min.css';
+@import '../node_modules/bootswatch/dist/cosmo//bootstrap.min.css';
 /*slate,superhero,cerulean,minty,simplex*/
 /*cosmo,pulse*/
 @import '../node_modules/font-awesome/css/font-awesome.min.css';
@@ -16,7 +16,7 @@
   }
   
   .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
-    border-bottom: 4px solid #fbcdcf;
+    border-bottom: 4px solid #000080;
   }
   
   .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
@@ -34,7 +34,7 @@
   }
   
   .member-tabset > .nav-tabs > li.active {
-    border-bottom: 4px solid #E95420;
+    border-bottom: 4px solid  #2780E3 !important;
     position: relative;
   }
   

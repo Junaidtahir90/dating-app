@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using DatingApp.API.Helper;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace DatingApp.API
 {
@@ -29,7 +30,8 @@ namespace DatingApp.API
         {
             //var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             // To Inject Dbcontect and load ConnectionString 
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"])
+            .ConfigureWarnings(warnings => warnings.Ignore(CoreEventId.IncludeIgnoredWarning)));
             services.AddTransient<Seed>();
             //Just Handle json ',' error 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
@@ -43,10 +45,10 @@ namespace DatingApp.API
             services.AddCors(options =>
              {
                  options.AddPolicy("CorsPolicy",
-                  builder => builder.AllowAnyOrigin()
-                  .AllowAnyMethod()
-                  .AllowAnyHeader()
-                  .AllowCredentials());
+               builder => builder.AllowAnyOrigin()
+           .AllowAnyMethod()
+           .AllowAnyHeader());
+                 //.AllowCredentials());
              });
             #endregion
 
@@ -76,7 +78,7 @@ namespace DatingApp.API
             #endregion
 
         }
-         public void ConfigureDevelopmentServices(IServiceCollection services)
+        public void ConfigureDevelopmentServices(IServiceCollection services)
         {
             //var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
             // To Inject Dbcontect and load ConnectionString 
@@ -131,6 +133,8 @@ namespace DatingApp.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
+            app.UseCors("CorsPolicy");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -159,8 +163,7 @@ namespace DatingApp.API
 
             //app.UseHttpsRedirection();
             // To enable CORS
-            app.UseCors("CorsPolicy");
-            //seeder.SeedUsers();
+           // seeder.SeedUsers();
             app.UseAuthentication();
             #region  For deployment to statging
             app.UseDefaultFiles();
