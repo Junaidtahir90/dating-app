@@ -14,7 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2020 15:23:19</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>04/30/2020 11:31:29</publishTime>
+      <publishTime>05/04/2020 17:12:21</publishTime>
     </File>
     <File Include="AutoMapper.dll">
       <publishTime>08/12/2019 12:42:04</publishTime>
@@ -29,16 +29,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/29/2020 14:39:42</publishTime>
     </File>
     <File Include="DatingApp.API.deps.json">
-      <publishTime>05/04/2020 11:03:17</publishTime>
+      <publishTime>05/04/2020 18:35:57</publishTime>
     </File>
     <File Include="DatingApp.API.dll">
-      <publishTime>05/04/2020 11:03:05</publishTime>
+      <publishTime>05/04/2020 18:35:48</publishTime>
     </File>
     <File Include="DatingApp.API.pdb">
-      <publishTime>05/04/2020 11:03:05</publishTime>
+      <publishTime>05/04/2020 18:35:48</publishTime>
     </File>
     <File Include="DatingApp.API.runtimeconfig.json">
-      <publishTime>05/04/2020 11:03:20</publishTime>
+      <publishTime>05/04/2020 18:35:57</publishTime>
     </File>
     <File Include="Microsoft.Data.Sqlite.dll">
       <publishTime>01/24/2019 23:30:00</publishTime>
@@ -60,6 +60,27 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="package-lock.json">
       <publishTime>04/20/2020 19:36:52</publishTime>
+    </File>
+    <File Include="Publish/appsettings.Development.json">
+      <publishTime>04/29/2020 15:23:19</publishTime>
+    </File>
+    <File Include="Publish/appsettings.json">
+      <publishTime>05/04/2020 16:43:05</publishTime>
+    </File>
+    <File Include="Publish/Data/UserSeedData.json">
+      <publishTime>04/29/2020 14:39:42</publishTime>
+    </File>
+    <File Include="Publish/DatingApp.API.deps.json">
+      <publishTime>05/04/2020 16:37:53</publishTime>
+    </File>
+    <File Include="Publish/DatingApp.API.runtimeconfig.json">
+      <publishTime>05/04/2020 16:37:53</publishTime>
+    </File>
+    <File Include="Publish/package-lock.json">
+      <publishTime>04/20/2020 19:36:52</publishTime>
+    </File>
+    <File Include="Publish/web.config">
+      <publishTime>05/04/2020 16:39:47</publishTime>
     </File>
     <File Include="Remotion.Linq.dll">
       <publishTime>04/30/2019 17:45:18</publishTime>
@@ -113,34 +134,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/30/2019 17:45:48</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>05/04/2020 11:03:21</publishTime>
+      <publishTime>05/04/2020 18:35:57</publishTime>
     </File>
     <File Include="wwwroot/3rdpartylicenses.txt">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/assets/user.png">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/Dating-Site.ico">
+      <publishTime>05/04/2020 13:45:20</publishTime>
     </File>
     <File Include="wwwroot/Dating.ico">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 13:45:30</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/fontawesome-webfont.674f50d287a8c48dc19b.eot">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/fontawesome-webfont.912ec66d7572ff821749.svg">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/fontawesome-webfont.af7ae505a9eed503f8b8.woff2">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/fontawesome-webfont.b06871f281fee6b241d6.ttf">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/fontawesome-webfont.fee66e712a8a08eef580.woff">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/index.html">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/main.1d67d1db049d9de8d5bf.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/main.d4f385e96a3194794e2f.js">
       <publishTime>04/29/2020 13:29:20</publishTime>
@@ -148,17 +178,29 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="wwwroot/polyfills-es5.549ae6b10f4817551e0e.js">
       <publishTime>04/29/2020 13:29:20</publishTime>
     </File>
+    <File Include="wwwroot/polyfills-es5.a5163110188be947a9f4.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
     <File Include="wwwroot/polyfills.2db25f1641fe03a04cc1.js">
       <publishTime>04/29/2020 13:29:20</publishTime>
+    </File>
+    <File Include="wwwroot/polyfills.d15cf5b3fe5c097b06a9.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/runtime.458556a34b891ea32398.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/runtime.c45919dffd6cc0dba81a.js">
       <publishTime>04/29/2020 13:29:20</publishTime>
     </File>
     <File Include="wwwroot/scripts.00aef30835fc60cdc996.js">
-      <publishTime>04/29/2020 13:29:20</publishTime>
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
     <File Include="wwwroot/styles.4a8dc5f61ea2f52a4de1.css">
       <publishTime>04/29/2020 13:29:20</publishTime>
+    </File>
+    <File Include="wwwroot/styles.ece5f220eaea7d1aea07.css">
+      <publishTime>05/04/2020 17:31:31</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAxWPE1GpqVEGvBcDKiyHd9wAAAAACAAAAAAAQZgAAAAEAACAAAAAgUHP/+z5rjubzZt3/vhu8j27L77a4huyXI1tMKAqA4gAAAAAOgAAAAAIAACAAAADIb7UVbgUrpaDg5qmL8Hs2ozCBZrqoSkTn0GXckUoIlyAAAAAfD62j377kO1OqDSmEb2zLwDMaygN/UpaAnjVtrUfW2EAAAACTvK0hUO28mNQE4rsoBL82kXbQRC/8O+UPl+FhyQs6QQJ3GAp7rzafkKgV0wOOck7haGxOVQSpJa1UrccxQ9gj</EncryptedPassword>
+    <_PublishTargetUrl>ftp://www.datingvilla.somee.com/www.datingvilla.somee.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>04/29/2020 15:23:19</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>05/04/2020 17:12:21</publishTime>
+    </File>
+    <File Include="AutoMapper.dll">
+      <publishTime>08/12/2019 12:42:04</publishTime>
+    </File>
+    <File Include="AutoMapper.Extensions.Microsoft.DependencyInjection.dll">
+      <publishTime>08/12/2019 13:19:42</publishTime>
+    </File>
+    <File Include="CloudinaryDotNet.dll">
+      <publishTime>01/29/2020 04:18:00</publishTime>
+    </File>
+    <File Include="Data/UserSeedData.json">
+      <publishTime>04/29/2020 14:39:42</publishTime>
+    </File>
+    <File Include="DatingApp.API.deps.json">
+      <publishTime>05/04/2020 17:57:55</publishTime>
+    </File>
+    <File Include="DatingApp.API.dll">
+      <publishTime>05/04/2020 17:56:41</publishTime>
+    </File>
+    <File Include="DatingApp.API.pdb">
+      <publishTime>05/04/2020 17:56:41</publishTime>
+    </File>
+    <File Include="DatingApp.API.runtimeconfig.json">
+      <publishTime>05/04/2020 17:57:55</publishTime>
+    </File>
+    <File Include="Microsoft.Data.Sqlite.dll">
+      <publishTime>01/24/2019 23:30:00</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>01/24/2019 23:30:00</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>01/24/2019 23:30:06</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Relational.dll">
+      <publishTime>01/24/2019 23:30:12</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Sqlite.dll">
+      <publishTime>01/24/2019 23:30:36</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>11/27/2018 18:07:34</publishTime>
+    </File>
+    <File Include="package-lock.json">
+      <publishTime>04/20/2020 19:36:52</publishTime>
+    </File>
+    <File Include="Publish/appsettings.Development.json">
+      <publishTime>04/29/2020 15:23:19</publishTime>
+    </File>
+    <File Include="Publish/appsettings.json">
+      <publishTime>05/04/2020 17:08:14</publishTime>
+    </File>
+    <File Include="Publish/Data/UserSeedData.json">
+      <publishTime>04/29/2020 14:39:42</publishTime>
+    </File>
+    <File Include="Publish/DatingApp.API.deps.json">
+      <publishTime>05/04/2020 16:37:53</publishTime>
+    </File>
+    <File Include="Publish/DatingApp.API.runtimeconfig.json">
+      <publishTime>05/04/2020 16:37:53</publishTime>
+    </File>
+    <File Include="Publish/package-lock.json">
+      <publishTime>04/20/2020 19:36:52</publishTime>
+    </File>
+    <File Include="Publish/web.config">
+      <publishTime>05/04/2020 17:41:11</publishTime>
+    </File>
+    <File Include="Remotion.Linq.dll">
+      <publishTime>04/30/2019 17:45:18</publishTime>
+    </File>
+    <File Include="runtimes/alpine-x64/native/libe_sqlite3.so">
+      <publishTime>12/18/2018 15:00:38</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm/native/libe_sqlite3.so">
+      <publishTime>12/18/2018 15:00:38</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libe_sqlite3.so">
+      <publishTime>12/18/2018 15:00:38</publishTime>
+    </File>
+    <File Include="runtimes/linux-armel/native/libe_sqlite3.so">
+      <publishTime>12/18/2018 15:00:38</publishTime>
+    </File>
+    <File Include="runtimes/linux-musl-x64/native/libe_sqlite3.so">
+      <publishTime>12/18/2018 15:00:38</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libe_sqlite3.so">
+      <publishTime>12/18/2018 15:00:38</publishTime>
+    </File>
+    <File Include="runtimes/linux-x86/native/libe_sqlite3.so">
+      <publishTime>12/18/2018 15:00:38</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libe_sqlite3.dylib">
+      <publishTime>12/18/2018 15:00:36</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/e_sqlite3.dll">
+      <publishTime>12/18/2018 15:01:12</publishTime>
+    </File>
+    <File Include="runtimes/win8-arm/native/e_sqlite3.dll">
+      <publishTime>12/18/2018 15:01:12</publishTime>
+    </File>
+    <File Include="SQLitePCLRaw.batteries_v2.dll">
+      <publishTime>12/18/2018 15:00:32</publishTime>
+    </File>
+    <File Include="SQLitePCLRaw.core.dll">
+      <publishTime>12/18/2018 15:00:30</publishTime>
+    </File>
+    <File Include="SQLitePCLRaw.provider.e_sqlite3.dll">
+      <publishTime>12/18/2018 15:00:52</publishTime>
+    </File>
+    <File Include="System.Interactive.Async.dll">
+      <publishTime>04/30/2019 17:45:48</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>05/04/2020 17:57:56</publishTime>
+    </File>
+    <File Include="wwwroot/3rdpartylicenses.txt">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/assets/user.png">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/fontawesome-webfont.674f50d287a8c48dc19b.eot">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/fontawesome-webfont.912ec66d7572ff821749.svg">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/fontawesome-webfont.af7ae505a9eed503f8b8.woff2">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/fontawesome-webfont.b06871f281fee6b241d6.ttf">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/fontawesome-webfont.fee66e712a8a08eef580.woff">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/index.html">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/main.1d67d1db049d9de8d5bf.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/polyfills-es5.a5163110188be947a9f4.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/polyfills.d15cf5b3fe5c097b06a9.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/runtime.458556a34b891ea32398.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/scripts.00aef30835fc60cdc996.js">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+    <File Include="wwwroot/styles.ece5f220eaea7d1aea07.css">
+      <publishTime>05/04/2020 17:31:31</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
